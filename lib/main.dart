@@ -15,6 +15,7 @@ class MainApp extends StatelessWidget {
   }
 }
 
+// Pantalla 'Inicio' (StatefulWidget con un contador)
 class InicioScreen extends StatefulWidget {
   const InicioScreen({super.key});
 
@@ -88,6 +89,7 @@ class _InicioScreenState extends State<InicioScreen> {
   }
 }
 
+// Pantalla 'Acerca de' (StatelessWidget con texto estático)
 class AcercaDeScreen extends StatelessWidget {
   const AcercaDeScreen({super.key});
 
@@ -113,6 +115,7 @@ class AcercaDeScreen extends StatelessWidget {
   }
 }
 
+// Pantalla 'Contacto' (StatefulWidget con un TextField)
 class ContactoScreen extends StatefulWidget {
   const ContactoScreen({super.key});
 
