@@ -10,14 +10,7 @@ class MainApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      home: Scaffold(
-        appBar: AppBar(
-          title: const Text('Aplicación Flutter'),
-        ),
-        body: const Center(
-          child: Text('Selecciona una pantalla'),
-        ),
-      ),
+      home: const InicioScreen(),
     );
   }
 }
@@ -31,10 +24,34 @@ class InicioScreen extends StatelessWidget {
       appBar: AppBar(
         title: const Text('Inicio'),
       ),
-      body: const Center(
-        child: Text(
-          'Bienvenido',
-          style: TextStyle(fontSize: 24),
+      body: Center(
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            ElevatedButton(
+              onPressed: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder: (context) => const AcercaDeScreen(),
+                  ),
+                );
+              },
+              child: const Text('Ir a Acerca de'),
+            ),
+            const SizedBox(height: 20),
+            ElevatedButton(
+              onPressed: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder: (context) => const ContactoScreen(),
+                  ),
+                );
+              },
+              child: const Text('Ir a Contacto'),
+            ),
+          ],
         ),
       ),
     );
