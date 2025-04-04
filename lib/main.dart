@@ -66,6 +66,12 @@ class AcercaDeScreen extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         title: const Text('Acerca de'),
+        leading: IconButton(
+          icon: const Icon(Icons.arrow_back),
+          onPressed: () {
+            Navigator.pop(context); // Regresa a la pantalla anterior ('Inicio')
+          },
+        ),
       ),
       body: const Center(
         child: Text(
@@ -85,6 +91,12 @@ class ContactoScreen extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         title: const Text('Contacto'),
+        leading: IconButton(
+          icon: const Icon(Icons.arrow_back),
+          onPressed: () {
+            Navigator.pop(context); // Regresa a la pantalla anterior ('Inicio')
+          },
+        ),
       ),
       body: const Center(
         child: Text(
