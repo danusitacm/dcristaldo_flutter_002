@@ -28,7 +28,6 @@ class _InicioScreenState extends State<InicioScreen> {
   @override
   void initState() {
     super.initState();
-    // Aquí puedes inicializar datos o realizar configuraciones iniciales.
     print('InicioScreen: initState llamado');
   }
 
@@ -114,11 +113,33 @@ class AcercaDeScreen extends StatelessWidget {
   }
 }
 
-class ContactoScreen extends StatelessWidget {
+class ContactoScreen extends StatefulWidget {
   const ContactoScreen({super.key});
 
   @override
+  State<ContactoScreen> createState() => _ContactoScreenState();
+}
+
+class _ContactoScreenState extends State<ContactoScreen> {
+  final TextEditingController _controller = TextEditingController();
+
+  @override
+  void initState() {
+    super.initState();
+    print('ContactoScreen: initState llamado');
+  }
+
+  @override
+  void dispose() {
+    print('ContactoScreen: dispose llamado');
+    print('Mensaje ingresado: ${_controller.text}');
+    _controller.dispose(); // Libera los recursos del controlador
+    super.dispose();
+  }
+
+  @override
   Widget build(BuildContext context) {
+    print('ContactoScreen: build llamado');
     return Scaffold(
       appBar: AppBar(
         title: const Text('Contacto'),
@@ -129,10 +150,24 @@ class ContactoScreen extends StatelessWidget {
           },
         ),
       ),
-      body: const Center(
-        child: Text(
-          'Contáctanos',
-          style: TextStyle(fontSize: 24),
+      body: Padding(
+        padding: const EdgeInsets.all(16.0),
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            const Text(
+              'Escribe tu mensaje:',
+              style: TextStyle(fontSize: 18),
+            ),
+            const SizedBox(height: 10),
+            TextField(
+              controller: _controller,
+              decoration: const InputDecoration(
+                border: OutlineInputBorder(),
+                hintText: 'Ingresa tu mensaje aquí',
+              ),
+            ),
+          ],
         ),
       ),
     );
