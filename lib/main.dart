@@ -15,11 +15,32 @@ class MainApp extends StatelessWidget {
   }
 }
 
-class InicioScreen extends StatelessWidget {
+class InicioScreen extends StatefulWidget {
   const InicioScreen({super.key});
 
   @override
+  State<InicioScreen> createState() => _InicioScreenState();
+}
+
+class _InicioScreenState extends State<InicioScreen> {
+  int _counter = 0; // Variable para almacenar el contador
+
+  @override
+  void initState() {
+    super.initState();
+    // Aquí puedes inicializar datos o realizar configuraciones iniciales.
+    print('InicioScreen: initState llamado');
+  }
+
+  void _incrementCounter() {
+    setState(() {
+      _counter++; // Incrementa el contador y actualiza la UI
+    });
+  }
+
+  @override
   Widget build(BuildContext context) {
+    print('InicioScreen: build llamado');
     return Scaffold(
       appBar: AppBar(
         title: const Text('Inicio'),
@@ -28,6 +49,16 @@ class InicioScreen extends StatelessWidget {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
+            Text(
+              'Contador: $_counter',
+              style: const TextStyle(fontSize: 24),
+            ),
+            const SizedBox(height: 20),
+            ElevatedButton(
+              onPressed: _incrementCounter,
+              child: const Text('Incrementar contador'),
+            ),
+            const SizedBox(height: 40),
             ElevatedButton(
               onPressed: () {
                 Navigator.push(
